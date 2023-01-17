@@ -37,7 +37,7 @@ export class ParkingComponent implements OnInit {
       "vehicleType": this.parkinginputs.VehicleType,
       "vehicleColor": this.parkinginputs.VehicleColor,
       "status": "I",
-      "slot": 1
+      "slot": this.parkinginputs.Slot
     });
     this.client.post(
       this.baseUrl + "parkingservice/checkin",
@@ -47,9 +47,9 @@ export class ParkingComponent implements OnInit {
       }
     }).subscribe(result => {
       console.log(result);
+      alert("Check In Vehicle " + this.parkinginputs.VehicleNo + " Success!");
+    }, err => { alert(JSON.stringify(err)); });
 
-    }, err => { alert(JSON.stringify(err.error)); });
-    alert("Check In Vehicle " + this.parkinginputs.VehicleNo + " Success!");
     this.ClearInputs();
   }
 
@@ -74,5 +74,10 @@ interface IParking {
   VehicleColor?: string;
   Status?: string;
   DateTimeIn?: any;
+}
 
+interface IResponseModel {
+  Message?: string;
+  Success?: boolean;
+  Data?: any;
 }
