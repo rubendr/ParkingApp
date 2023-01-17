@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ParkingMobileFrontend.Views.ParkingPage"
+             xmlns:vm="clr-namespace:ParkingMobileFrontend.ViewModels"
+             x:DataType="vm:ParkingViewModel"
+             Title="Parking">
+    <StackLayout Padding="20">
+        <Entry Placeholder="Vehicle No" Text="{Binding VehicleNo}"></Entry>
+        <Entry Placeholder="Vehicle Type" Text="{Binding VehicleType}"></Entry>
+        <Entry Placeholder="Vehicle Color" Text="{Binding VehicleColor}"></Entry>
+        <Entry Placeholder="Slot" Text="{Binding Slot}" MaxLength="6"></Entry>
+        <Entry Placeholder="Status" Text="{Binding Status}" MaxLength="1"></Entry>
+        <StackLayout VerticalOptions="StartAndExpand" Spacing="5">
+            <Button Text="Post Check In" Command="{Binding PostCheckInCommand}"></Button>
+            <Button Text="Post Check Out" Command="{Binding PostCheckInCommand}"></Button>
+        </StackLayout>
+    </StackLayout>
+</ContentPage>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Shell
+    x:Class="ParkingMobileFrontend.AppShell"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:ParkingMobileFrontend"
+    xmlns:vm="clr-namespace:ParkingMobileFrontend.ViewModels"
+    x:DataType="vm:AppViewModel"
+    Shell.FlyoutBehavior="Flyout">
+
+    <ShellContent
+        Title="Home"
+        ContentTemplate="{DataTemplate local:MainPage}"
+        Route="MainPage" Icon="dotnet_bot.svg" />
+
+    <MenuItem Text="Parking" Command="{Binding CheckInParkingCommand}" IconImageSource="dotnet_bot.svg"></MenuItem>
+    <MenuItem Text="Vehicle" Command="{Binding CheckInParkingCommand}" IconImageSource="dotnet_bot.svg"></MenuItem>
+    <MenuItem Text="History" Command="{Binding CheckInParkingCommand}" IconImageSource="dotnet_bot.svg"></MenuItem>
+
+</Shell>

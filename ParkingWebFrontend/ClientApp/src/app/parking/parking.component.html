@@ -1,0 +1,99 @@
+<h1 id="tableLabel">Parking</h1>
+
+<p>This component demonstrates parking data from the server.</p>
+
+
+
+<ng-template [ngIf]="currentUrl=='parking-in'">
+    <div>
+        Content to render when condition is
+        true.
+    </div>
+</ng-template>
+
+<div *ngIf="currentUrl=='/parking-in'; then parking_in"></div>
+<ng-template #parking_in>
+    <div>
+        <div class="row p-2">
+            <div class="col-12 p-1">
+                <input class="form-control" placeholder="Vehicle No" [(ngModel)]="parkinginputs.VehicleNo" style="font-size:3em" />
+            </div>
+        </div>
+
+        <div class="row p-2">
+            <div class="col-lg-4 col-sm-12 p-1">
+                <input class="form-control" placeholder="Vehicle Type" [(ngModel)]="parkinginputs.VehicleType" />
+            </div>
+            <div class="col-lg-4 col-sm-12 p-1">
+                <input class="form-control" placeholder="Vehicle Color" [(ngModel)]="parkinginputs.VehicleColor" />
+            </div>
+            <div class="col-lg-4 col-sm-12 p-1">
+                <input class="form-control" placeholder="Slot" [(ngModel)]="parkinginputs.Slot" />
+            </div>
+        </div>
+
+        <div class="p-0">
+            <button class="btn btn-primary" (click)="postCheckIn()">Check In</button>
+            <button class="btn btn-danger float-end" (click)="postCheckOut()">Check Out</button>
+        </div>
+
+    </div>
+
+
+    <div class="table-responsive">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Slot</th>
+                    <th>Vehicle</th>
+                    <th>Type</th>
+                    <th>Color</th>
+                    <th>Status</th>
+                    <th>Time</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <th>B10001OK</th>
+                    <td>Car</td>
+                    <td>White</td>
+                    <td>In</td>
+                    <td>2023/01/16 22:50:00</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <th>B10002OK</th>
+                    <td>Car</td>
+                    <td>White</td>
+                    <td>In</td>
+                    <td>2023/01/16 22:55:01</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</ng-template>
+
+
+<div *ngIf="currentUrl=='/parking-out'; then parking_out"></div>
+<ng-template #parking_out>
+    <div class="table-responsive">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>2</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</ng-template>
+
+
+
+
+
